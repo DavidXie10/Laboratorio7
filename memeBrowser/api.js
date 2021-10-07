@@ -83,7 +83,7 @@ function displayData(data){
     data.forEach((post) => {
         display += `
         <ul class = "${post.id}" style="display: none">
-        <li><strong>Meme name:</strong> ${post.name} </li> <br>
+        <li><strong>Meme name:</strong> ${post.name} </li> <br/>
         <img src = "${post.url}" class = "${post.id}" style="display: none"></img>
         </ul>
         `;
