@@ -1,6 +1,4 @@
 
-// TODO: quitar comentarios
-
 const BASE_URL = 'https://pokeapi.co/api/v2/'
 const IMG_TAG = 'img'
 const POKEMON_NAME_INPUT = 'name-input'
@@ -11,6 +9,7 @@ const clear = section => section.innerHTML = ''
 async function getPokemonByName (name){
     const pokemonURL = `${BASE_URL}pokemon/${name}`
     let pokemonData = null
+
     try {
         const response = await fetch(pokemonURL)
         pokemonData = await response.json()
@@ -22,7 +21,7 @@ async function getPokemonByName (name){
 }
 
 function showPokemonImg(pokemonData){
-    const { sprites } = pokemonData       // Desestructuracion de los sprites que estan en el JSON
+    const { sprites } = pokemonData       
     const imgLink = sprites.front_default
     const img = document.createElement(IMG_TAG);
     img.src = imgLink
@@ -33,17 +32,18 @@ function showPokemonImg(pokemonData){
 
 function showPokemonInfo(pokemonData){
     const { abilities, name, height, weight, order } = pokemonData
-    // Esto es lo mismo que abilities = pokemonData.abilities
+    const pokemonDetails = document.getElementById(POKEMON_DETAILS_PLACE)
+
     let content = `Pokemon: ${name} <br/>`
     content += `Id: ${order} <br/>`
     content += `Height: ${height} <br/>`
     content += `Weight: ${weight} <br/>`
+    content += "Abilities: <br/>"
     
     for(let index in abilities){
         content += `${index}) ${abilities[index].ability.name} <br/>`
     }
 
-    const pokemonDetails = document.getElementById(POKEMON_DETAILS_PLACE)
     clear(pokemonDetails)
     pokemonDetails.innerHTML = content
 }
