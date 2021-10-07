@@ -38,7 +38,7 @@ function parseDataFromJson(universitiesData){
             "name": actualUniversitie.name,
             "country": actualUniversitie.country,
             "alphaCode": actualUniversitie.alpha_two_code,
-            "webPage": actualUniversitie.web_pages[0]
+            "mainWebPage": actualUniversitie.web_pages[0]
         });
     }
     
@@ -54,7 +54,7 @@ function displayData(data){
         <li><strong>University name:</strong> ${post.name} </li>
         <li><strong>Country:</strong> ${post.country} </li>
         <li><strong>Alpha two code: </strong>${post.alphaCode}</li>
-        <li><strong>Main web page: </strong><a href="${post.webPage}">${post.webPage}</a></li>
+        <li><strong>Main web page: </strong><a href="${post.mainWebPage}">${post.mainWebPage}</a></li>
         </ul>
         `;
     });
@@ -63,7 +63,7 @@ function displayData(data){
 }
 
 function search(){
-    let text = document.getElementById("search").value;
+    let text = document.getElementById(COUNTRY_NAME_INPUT).value;
     data.forEach((post) => {
         if (match(post.name, text) || text == "")
             show(post.id)
