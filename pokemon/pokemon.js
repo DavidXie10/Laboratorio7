@@ -46,6 +46,7 @@ function showPokemonInfo(pokemonData){
 
     clear(pokemonDetails)
     pokemonDetails.innerHTML = content
+    pokemonDetails.setAttribute('style', 'background-color: #003476;');
 }
 
 async function findPokemon(){

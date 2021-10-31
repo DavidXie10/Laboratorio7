@@ -5,14 +5,22 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/styles.css" rel="stylesheet">
     </head>
     <body>
-        <div>
-            <input id="name-input" type="text" placeholder="Nombre del Pokemon">
-            <button onclick="findPokemon()">Buscar</button>
-        </div>
-        <div id="pokemon-img"></div>
-        <div id="pokemon-details"></div>
+        <header>
+            <h1>Buscador de pokemones</h1>
+        </header>
+        <main>
+            <div>
+                <p><strong>Introduzca el nombre del pokemon a buscar</strong></p><br>
+                <input id="name-input" type="text" placeholder="Nombre del Pokemon">
+                <button id="search-button" onclick="findPokemon()">Buscar</button>
+            </div>
+            <div id="pokemon-img"></div>
+            <div id="pokemon-details"></div>
+        </main>
+        <footer></footer>
         <script src="./pokemon.js"></script>
     </body>
 </html>
